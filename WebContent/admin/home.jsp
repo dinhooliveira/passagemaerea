@@ -3,7 +3,10 @@
 
 
 <div class="card">
-	<div class="card-header">Voo Lista</div>
+	<div class="card-header card-header-primary">
+	<b>Voo Lista</b>
+	<a href="<% request.getContextPath();%>/passagemaerea/vooController?pagina=novo" class="btn btn-success float-right text-white">Novo</a>
+	</div>
 	<div class="card-body">
 		<table class="table">
 			<thead>
