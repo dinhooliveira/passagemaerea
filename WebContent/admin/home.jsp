@@ -1,4 +1,4 @@
 
 <%@include file="header.jsp" %>
-</body>
-</html>
+
+<%@include file="footer.jsp" %>
