@@ -1,7 +1,7 @@
 <%@ page import="voo.VooModel"%>
 <%@ page import="voo.Aeroporto"%>
 <%@ page import="java.util.List"%>
-<%@ page import="conexao.ConexaoMysql"%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>

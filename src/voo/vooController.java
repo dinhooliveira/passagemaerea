@@ -1,81 +1,90 @@
 package voo;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.RequestDispatcher;
-import java.sql.SQLException;
-import java.util.List;
-
+import voo.Voo;
 import voo.VooModel;
 
+
+
 /**
- * Servlet implementation class vooController
+ * Servlet implementation class VooController
  */
-@WebServlet("/vooController")
-public class vooController extends HttpServlet {
+@WebServlet("/VooController")
+public class VooController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private VooModel vooM;
+       
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public VooController() {
+        super();
+        // TODO Auto-generated constructor stub
+    }
 
 	/**
-	 * @see HttpServlet#HttpServlet()
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	public vooController() {
-		super();
-		// TODO Auto-generated constructor stub
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		// TODO Auto-generated method stub
+				String acao = request.getParameter("pagina");
+				 switch(acao) {
+				 case "novo":
+					 response.sendRedirect("admin/voo_form_novo.jsp");
+			     break;
+				   default:
+					 
+				   break;
+				 }
 	}
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
-	 *      response)
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		System.out.print(request.getParameter("pagina"));
-
-		switch (request.getParameter("pagina")) {
-		case "novo":
-			response.sendRedirect("admin/voo_form_novo.jsp");
-			break;
-		default:
-			break;
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String acao = request.getParameter("acao");
+		 switch(acao) {
+		 case "create":
+			  create(request,response);
+	     break;
+		   default:
+			 
+		   break;
+		 }
+ 	}
+	
+	private void create(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+		Voo v= new Voo();
+		v.setAeroporto_destino(Integer.parseInt(request.getParameter("destino")));
+		v.setAeroporto_origem(Integer.parseInt(request.getParameter("origem")));
+		v.setDisponivel(Integer.parseInt(request.getParameter("assentos")));
+		v.setData( request.getParameter("data"));
+		v.setHorario(request.getParameter("horario"));
+		
+		
+		try
+		{
+			VooModel.inserir(v);
+			response.sendRedirect("admin/home.jsp");
+		}catch(SQLException e) {
+			
 		}
-	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		 
-		 String action = request.getServletPath();
-		 
-
-	        try {
-	            switch (action) {
-	            case "/new":
-	            break;
-	      
-	            default:
-	                showNewForm(request, response);	               
-	            break;
-	            }
-	        } catch (SQLException ex) {
-	            throw new ServletException(ex);
-	        }
-	        
-	}
-
-	private void showNewForm(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException, SQLException {
-		List<Aeroporto> aeroP = vooM.listAeroPorto();
-	    request.setAttribute("ListAeroP", aeroP);
-		RequestDispatcher dispatcher = request.getRequestDispatcher("voo_form_novo.jsp");
-		dispatcher.forward(request, response);
-	}
+         
+		
+		
+		
+		
+ 	}
+	
+	
 
 }
