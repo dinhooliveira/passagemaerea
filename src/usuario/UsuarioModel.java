@@ -22,22 +22,17 @@ public class UsuarioModel {
 
 	public static Usuario login(String login, String senha) throws SQLException {
 		Connection conexao = ConexaoMysql.getConnection();
-		String sql = "SELECT * FROM usuario where login = ? and senha=? ";
+		String sql = "SELECT * FROM usuario where login = '"+login+"' and senha='"+senha+"'; ";
 
 		 Usuario usuario  = new Usuario();
 		try {
 			PreparedStatement ps = conexao.prepareCall(sql);
-			ps.setString(1,login);
-			ps.setString(1,senha);
 			
 			ResultSet rs = ps.executeQuery();
 			rs.next();
 			usuario.setLogin(rs.getString("login"));
 			usuario.setSenha(rs.getString("senha"));
 			usuario.setTipo(rs.getString("tipo"));
-			
-			
-			
 			conexao.commit();
 		} catch (SQLException e) {
 			// Erro, provoca um Rollback (volta ao estado anterior do banco)
@@ -46,6 +41,7 @@ public class UsuarioModel {
 			// fechar a conex�o
 			conexao.close();
 		}
+		
 		
 		return usuario;
 		

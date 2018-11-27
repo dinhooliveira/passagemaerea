@@ -11,4 +11,11 @@
 </head>
 <body>
 <%@include file="navbar.jsp" %>
+<%@ page import="usuario.Usuario"%>
+
+<% 
+   if(session.getAttribute("usuario")==null){
+	   response.sendRedirect("../login.jsp");
+   }
+%>
 <div class="container" id="content">
