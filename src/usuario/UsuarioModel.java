@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import conexao.ConexaoMysql;
 import usuario.Usuario;
+import voo.Voo;
 
 
 public class UsuarioModel {
@@ -46,4 +47,7 @@ public class UsuarioModel {
 		return usuario;
 		
 	}
+	
+	
+	
 }

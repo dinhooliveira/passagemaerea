@@ -32,11 +32,10 @@ public class VooController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// TODO Auto-generated method stub
 				String acao = request.getParameter("pagina");
 				 switch(acao) {
 				 case "novo":
-					 response.sendRedirect("admin/voo_form_novo.jsp");
+					 response.sendRedirect("admin/cadastro_voo.jsp");
 			     break;
 				   default:
 					 
