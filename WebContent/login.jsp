@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Seja Bem vindo!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/login.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/bootstrap.min.css">
 </head>
