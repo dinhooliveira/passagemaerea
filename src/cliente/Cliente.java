@@ -1,12 +1,17 @@
 package cliente;
+import usuario.Usuario;
 
 public class Cliente {
 	
+	private int  usuario_id;
+	private int id;
 	private String nome;
 	private String sobrenome;
 	private String data_nascimento;
 	private Endereco endereco;
-	private Cliente cliente;
+	private Cartao cartao;
+	private Usuario usuario;
+
 	
 	public String getNome() {
 		return nome;
@@ -32,11 +37,17 @@ public class Cliente {
 	public void setEndereco(Endereco endereco) {
 		this.endereco = endereco;
 	}
-	public Cliente getCliente() {
-		return cliente;
+	public Cartao getCartao() {
+		return cartao;
 	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setCartao(Cartao cartao) {
+		this.cartao = cartao;
+	}
+	public Usuario getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 	
 	

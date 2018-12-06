@@ -74,7 +74,7 @@ public class VooController extends HttpServlet {
 			VooModel.inserir(v);
 			response.sendRedirect("admin/home.jsp");
 		}catch(SQLException e) {
-			
+			response.sendRedirect("erro.jsp");
 		}
 
          

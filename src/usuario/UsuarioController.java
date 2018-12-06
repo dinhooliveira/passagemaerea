@@ -74,7 +74,7 @@ public class UsuarioController extends HttpServlet {
 		     response.sendRedirect("admin/home.jsp");
 
             }else if(null != usuario.getLogin() && null != usuario.getSenha()){
-            	out.print("cliente");
+            	out.print("<h1>cliente</h1>");
             }else {
             	response.sendRedirect("login.jsp");
             }

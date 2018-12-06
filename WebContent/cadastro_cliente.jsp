@@ -1,6 +1,29 @@
 <%@ include file="header.jsp"%>
 <div class="booking-form col-md-12">
-	<form>
+	<form method="post" action="${pageContext.request.contextPath}/ClienteController" >
+	
+	<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="form-label">Login</span> <input
+						class="form-control" type="text" name="login" placeholder="" required>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<span class="form-label">Senha </span> <input
+						class="form-control" type="password" name="senha"  placeholder="" required>
+				</div>
+			</div>
+			
+		   <div class="col-md-4">
+				<div class="form-group">
+					<span class="form-label">Confirmação Senha</span> <input
+						class="form-control" type="password" name="confirmaSenha" data-validation="confirmation" data-validation-confirm="senha" required>
+				</div>
+			</div>
+		</div>
+		
 	
 		<div class="row">
 			<div class="col-md-4">
@@ -81,8 +104,9 @@
 					<button class="submit-btn">Cadastrar</button>
 				</div>
 			</div>
-			
+			<input type="hidden" name="acao" value="create">
 		</div>
 	</form>
 </div>
+
 <%@ include file="footer.jsp"%>
