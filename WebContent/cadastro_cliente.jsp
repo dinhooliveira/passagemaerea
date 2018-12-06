@@ -6,13 +6,13 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<span class="form-label">Nome</span> <input
-						class="form-control" type="text" name="nome" placeholder="Severino">
+						class="form-control" type="text" name="nome" placeholder="Severino" required>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 					<span class="form-label">Sobrenome </span> <input
-						class="form-control" type="text" name="sobrenome" placeholder="Lima">
+						class="form-control" type="text" name="sobrenome" placeholder="Lima" required>
 				</div>
 			</div>
 			
@@ -28,19 +28,19 @@
 			<div class="col-md-2">
 				<div class="form-group">
 					<span class="form-label">Cep</span> <input
-						class="form-control" type="text" required>
+						class="form-control" type="text" name="cep"  required>
 				</div>
 			</div>
 			<div class="col-md-4">
 				<div class="form-group">
 					<span class="form-label">Logradouro</span> 
-						<input class="form-control" type="text" required>
+						<input class="form-control" type="text" name="logradouro"  required>
 				</div>
 			</div>
 			<div class="col-md-2">
 				<div class="form-group">
 					<span class="form-label">numero</span>
-					<input class="form-control" type="number" required>
+					<input class="form-control" type="number" name="numero"  required>
 					
 				</div>
 			</div>
@@ -48,7 +48,7 @@
 			<div class="col-md-4">
 				<div class="form-group">
 					<span class="form-label">Complemento</span>
-					<input class="form-control" type="text" required>
+					<input class="form-control" type="text" name="complemento"  >
 					
 				</div>
 			</div>
@@ -56,26 +56,32 @@
 		<div class="row">
 			<div class="col-md-3">
 				<div class="form-group">
-					<span class="form-label">Travel class</span> <select
-						class="form-control">
-						<option>Economy class</option>
-						<option>Business class</option>
-						<option>First class</option>
-					</select> <span class="select-arrow"></span>
+				<span class="form-label">Numero do cartão</span>
+					<input class="form-control" type="text" name="numerocartao"  required>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="form-btn">
-					<button class="submit-btn">Show flights</button>
+				<div class="form-group">
+				<span class="form-label">Codigo</span>
+					<input class="form-control" type="number" name="codigo"  required>
 				</div>
 			</div>
 			<div class="col-md-3">
-				<div class="form-btn">
-					<a
-						href="${pageContext.request.contextPath}/ClienteController?pagina=cadastro"
-						class="">Fazer Cadastro</a>
+				<div class="form-group">
+				<span class="form-label">validade</span>
+					<input class="form-control" type="date" name="validade"  required>
 				</div>
 			</div>
+		</div>
+		
+		<div class="row">
+			
+			<div class="col-md-3">
+				<div class="form-btn">
+					<button class="submit-btn">Cadastrar</button>
+				</div>
+			</div>
+			
 		</div>
 	</form>
 </div>
